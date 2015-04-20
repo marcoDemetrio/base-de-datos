@@ -14,8 +14,10 @@ Conexión de base de datos Interna y externa.
 Marco Antonio Demetrio López
 </author>
 
+<gap:plugin name="org.apache.cordova.device"/>
+<gap:plugin name="org.apache.cordova.dialogs" />
+<gap:plugin name="org.apache.cordova.contacts" version="0.2.9" />
+<gap:plugin name="org.apache.cordova.camera"/>
+
 <preference name="phonegap-version" value="3.7.0" />
-
-<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
-
 </widget>
