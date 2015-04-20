@@ -64,7 +64,7 @@ function querySuccess(tx, results){
 	
 	alert("tabla Demo: " + len + " fila encontradas.");
 	for (var i = 0; i < len; i++){
-		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + "apellido= " + results.rows.item(i).apellido);
+		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + " apellido= " + results.rows.item(i).apellido);
 	}
 		
 }
@@ -80,6 +80,18 @@ function guardarEnDB(tx){
 }
 
 function newFormSuccess(tx, results){
+	
+	alert("haciendo la consulta");
+	$("#resultados").css("display","block");
+	$("#caja_name").css("display","none");
+	$("#caja_apellido").css("display","none");
+	
+	var nombre = results.rows.item(0).nombre;
+	var apellido = results.rows.item(0).apellido;
+	
+	$('#result1').html(nombre);
+	$('#result2').html(apellido);
+	
 	var len = results.rows.length;
 	if(len == 0){
 		alert("No se encontrarón registros");

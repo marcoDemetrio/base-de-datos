@@ -24,10 +24,10 @@
       </div>
       <div data-role="content">
       <center>
-        <div data-role="fieldcontain">
+        <div data-role="fieldcontain" id="caja_name">
           <input type="text" name="ti_name" id="ti_name" placeholder="nombre:"  />
         </div>
-        <div data-role="fieldcontain">
+        <div data-role="fieldcontain" id="caja_apellido">
           <input type="text" name="ti_apellido" id="ti_apellido" placeholder="apellido:"  />
         </div>
         
@@ -36,9 +36,17 @@
         
         <br>
         <a href="#" onClick="cargarDatos();" data-role="button">ver</a>
+        
+        <div id="resultados" style="display: none">
+        	<h1>Resultado</h1>
+        	<span id="result1">#error</span>
+            <br>
+            <span id="result2">#error</span>
+        </div>
       
       </div>
-    </div>
+      
+      </div>
     
    	
     	
