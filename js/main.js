@@ -81,8 +81,8 @@ function guardarEnDB(tx){
 
 function newFormSuccess(tx, results){
 	
-	alert("haciendo la consulta");
-	$("#resultados").css("display","block");
+	alert("los datos fuerón guardados con exito");
+/*$("#resultados").css("display","block");
 	$("#caja_name").css("display","none");
 	$("#caja_apellido").css("display","none");
 	
@@ -90,15 +90,7 @@ function newFormSuccess(tx, results){
 	var apellido = results.rows.item(0).apellido;
 	
 	$('#result1').html(nombre);
-	$('#result2').html(apellido);
+	$('#result2').html(apellido); */
 	
-	var len = results.rows.length;
-	if(len == 0){
-		alert("No se encontrarón registros");
-	}
-	
-	alert("tabla Demo: " + len + " fila encontradas.");
-	for (var i = 0; i < len; i++){
-		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + "apellido= " + results.rows.item(i).apellido);
-	} 	
+		
 }
