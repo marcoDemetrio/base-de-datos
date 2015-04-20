@@ -76,7 +76,7 @@ function guardar(){
 
 function guardarEnDB(tx){
 	alert("insert");	
-	tx.executeSql('INSERT INTO DEMO (nombre, apellido) VALUES ("'+ $("#ti_name") +'","'+ $("#ti_apellido") +'")',[], newFormSuccess, errorCB);
+	tx.executeSql("INSERT INTO DEMO (nombre, apellido) VALUES ('"+ $("#ti_name").val() +"','"+ $("#ti_apellido").val() +"')",[], newFormSuccess, errorCB);
 }
 
 function newFormSuccess(tx, results){
