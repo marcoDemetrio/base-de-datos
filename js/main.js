@@ -68,7 +68,7 @@ function querySuccess(tx, results){
 	}
 	
 	var nombre = results.rows.item(0).nombre;
-	var nombre = results.rows.item(0).apellido;
+	var apellido = results.rows.item(0).apellido;
 	$('#result1').html(nombre);
 	$('#result2').html(apellido);
 		
