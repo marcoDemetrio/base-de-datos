@@ -27,7 +27,7 @@ function onDeviceReady(){
 }
 
 function creaDB(){
-	alert("rearDB");
+	alert("crearDB");
 	db.transaction(crearNuebaBD, errorCB, successCB);	
 }
 
@@ -53,10 +53,12 @@ function guardar(){
 }
 
 function cargarDatos(){
+	alert("cargar Datos");
 	db.transaction(getBD,errorCB);	
 }
 
 function getBD(tx){
+	alert("haciendo la consulta");
 	tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);	
 }
 
