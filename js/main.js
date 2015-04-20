@@ -19,7 +19,7 @@ function onDeviceReady(){
 	
 	alert("prueba de base de datos");
 	
-	guardar();
+//	guardar();
 }
 
 function guardar(){
@@ -39,4 +39,17 @@ function errorCB(tx, err){
 
 function successCB(){
 	alert("bien!");
+}
+
+function getBD(tx){
+	tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);	
+}
+
+function querySuccess(tx, results){
+	var len = results.rows.lengt;
+	alert("tabla Demo: " + len + "fila encontradas.");
+	for (var i = 0; i < len; i++){
+		console.log("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
+	}
+		
 }
