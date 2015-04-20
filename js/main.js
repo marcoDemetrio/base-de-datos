@@ -63,8 +63,12 @@ function getBD(tx){
 }
 
 function querySuccess(tx, results){
-	var len = results.rows.lengt;
-	alert("tabla Demo: " + len + "fila encontradas.");
+	var len = results.rows.length;
+	if(len == 0){
+		alert("No se encontrarón registros");
+	}
+	
+	alert("tabla Demo: " + len + " fila encontradas.");
 	for (var i = 0; i < len; i++){
 		alert("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
 		console.log("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
