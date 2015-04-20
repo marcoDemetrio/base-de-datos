@@ -34,8 +34,7 @@ function creaDB(){
 
 function crearNuebaBD(tx){
 	tx.executeSql('DROP TABLE IF EXISTS DEMO');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');	
-	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "Pimer dato")');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR(50), apellido VARCHAR(50))');
 }
 
 function errorCB(tx, err){
@@ -45,11 +44,6 @@ function errorCB(tx, err){
 function successCB(){
 	alert("bien!");
 	window.localStorage.setItem("existe_db",1);
-}
-
-
-function guardar(){
-	
 }
 
 function cargarDatos(){
@@ -70,8 +64,29 @@ function querySuccess(tx, results){
 	
 	alert("tabla Demo: " + len + " fila encontradas.");
 	for (var i = 0; i < len; i++){
-		alert("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
-		console.log("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
+		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + "apellido= " + results.rows.item(i).apellido);
 	}
 		
+}
+
+function guardar(){
+	alert("guardar datos");
+	db.transaction(guardarEnDB, errorCB);
+}
+
+function guardarEnDB(tx){
+	alert("insert");	
+	tx.executeSql('INSERT INTO DEMO (nombre, apellido) VALUES ("'+ $("#ti_name") +'","'+ $("#ti_apellido") +'")',[], newFormSuccess, errorCB);
+}
+
+function newFormSuccess(tx, results){
+	var len = results.rows.length;
+	if(len == 0){
+		alert("No se encontrarón registros");
+	}
+	
+	alert("tabla Demo: " + len + " fila encontradas.");
+	for (var i = 0; i < len; i++){
+		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + "apellido= " + results.rows.item(i).apellido);
+	} 	
 }
