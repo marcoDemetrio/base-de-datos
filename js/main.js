@@ -81,10 +81,18 @@ function guardarEnDB(tx){
 
 function newFormSuccess(tx, results){
 	
-	alert("los datos fuerón guardados con exito");
-/*$("#resultados").css("display","block");
-	$("#caja_name").css("display","none");
-	$("#caja_apellido").css("display","none");
+	var len = results.rows.length;
+	
+	if(len != 0){
+		alert("los datos fuerón guardados con exito");
+		$("#resultados").css("display","block");
+		$("#caja_name").css("display","none");
+		$("#caja_apellido").css("display","none");
+	}else{
+		alert("los datos No Se Guardarón");
+	}
+	
+	/*
 	
 	var nombre = results.rows.item(0).nombre;
 	var apellido = results.rows.item(0).apellido;
