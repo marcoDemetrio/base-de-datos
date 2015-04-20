@@ -6,5 +6,5 @@ function onBodyLoad()
 function onDeviceReady()
 {
 	// do your thing!
-    navigator.notification.alert("PhoneGap is working")
+    alert("PhoneGap is working")
 }
