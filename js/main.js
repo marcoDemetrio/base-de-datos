@@ -16,18 +16,23 @@ function onBodyLoad() {
 }
 
 function onDeviceReady(){
-	
 	alert("prueba de base de datos");
-	
-//	guardar();
-}
-
-function guardar(){
+	existe_db = window.localStorage.getItem("existe_db");
 	db = window.openDatabase("Database", "1.0", "prueba db", 200000);
-	db.transaction(populateDb, errorCB, successCB);
+	if(existe_db == null){
+		creaDB();
+	}else{
+		cargarDatos();
+	}
 }
 
-function populateDb(tx){
+function creaDB(){
+	alert("rearDB");
+	db.transaction(crearNuebaBD, errorCB, successCB);	
+}
+
+
+function crearNuebaBD(tx){
 	tx.executeSql('DROP TABLE IF EXISTS DEMO');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');	
 	tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "Pimer dato")');
@@ -39,6 +44,16 @@ function errorCB(tx, err){
 
 function successCB(){
 	alert("bien!");
+	window.localStorage.setItem("existe_db",1);
+}
+
+
+function guardar(){
+	
+}
+
+function cargarDatos(){
+	db.transaction(getBD,errorCB);	
 }
 
 function getBD(tx){
@@ -49,6 +64,7 @@ function querySuccess(tx, results){
 	var len = results.rows.lengt;
 	alert("tabla Demo: " + len + "fila encontradas.");
 	for (var i = 0; i < len; i++){
+		alert("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
 		console.log("fila = " + i + " ID= " + results.rows.item(i).id + " datos = " + results.rows.item(i).data);
 	}
 		
