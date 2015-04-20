@@ -16,4 +16,6 @@ Marco Antonio Demetrio López
 
 <preference name="phonegap-version" value="3.7.0" />
 
+<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+
 </widget>
