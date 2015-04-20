@@ -66,6 +66,11 @@ function querySuccess(tx, results){
 	for (var i = 0; i < len; i++){
 		alert("fila = " + i + " ID= " + results.rows.item(i).id + " nombre = " + results.rows.item(i).nombre + " apellido= " + results.rows.item(i).apellido);
 	}
+	
+	var nombre = results.rows.item(0).nombre;
+	var nombre = results.rows.item(0).apellido;
+	$('#result1').html(nombre);
+	$('#result2').html(apellido);
 		
 }
 
@@ -81,24 +86,10 @@ function guardarEnDB(tx){
 
 function newFormSuccess(tx, results){
 	
-	var len = results.rows.length;
 	
-	if(len != 0){
 		alert("los datos fuerón guardados con exito");
 		$("#resultados").css("display","block");
 		$("#caja_name").css("display","none");
 		$("#caja_apellido").css("display","none");
-	}else{
-		alert("los datos No Se Guardarón");
-	}
-	
-	/*
-	
-	var nombre = results.rows.item(0).nombre;
-	var apellido = results.rows.item(0).apellido;
-	
-	$('#result1').html(nombre);
-	$('#result2').html(apellido); */
-	
 		
 }
