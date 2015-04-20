@@ -14,4 +14,6 @@ Conexión de base de datos Interna y externa.
 Marco Antonio Demetrio López
 </author>
 
+<preference name="phonegap-version" value="3.7.0" />
+
 </widget>
