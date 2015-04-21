@@ -92,4 +92,6 @@ function newFormSuccess(tx, results){
 		$("#caja_name").css("display","none");
 		$("#caja_apellido").css("display","none");
 		
+		cargarDatos();
+		
 }
