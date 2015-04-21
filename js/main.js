@@ -23,6 +23,10 @@ function onDeviceReady(){
 		creaDB();
 	}else{
 		cargarDatos();
+		$("#resultados").css("display","block");
+		$("#caja_name").css("display","none");
+		$("#caja_apellido").css("display","none");
+		$("#bt_guardar").css("display","none");
 	}
 }
 
